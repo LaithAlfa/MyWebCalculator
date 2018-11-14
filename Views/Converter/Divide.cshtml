@@ -1,0 +1,10 @@
+<h1>Divide result</h1>
+<p>@ViewData["DivideResult"]</p>
+
+@{
+    int left = Convert.ToInt32(ViewData["left"]);
+    int right = Convert.ToInt32(ViewData["right"]);
+    int result = left / right;
+}
+
+<p>@result</p>

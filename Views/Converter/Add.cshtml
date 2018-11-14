@@ -1,0 +1,14 @@
+@{
+    Layout = null;
+}
+
+<h1>ADD result</h1>
+<p>@ViewData["AddResult"]</p>
+
+@{
+    int left = Convert.ToInt32(ViewData["left"]);
+    int right = Convert.ToInt32(ViewData["right"]);
+    int result = left + right;
+}
+
+<p>@result</p>

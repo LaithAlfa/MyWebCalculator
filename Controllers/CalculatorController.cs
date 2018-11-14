@@ -12,34 +12,51 @@ namespace MyWebCalculator.Controllers
 {
     public class CalculatorController : Controller
     {
-       public string Add(decimal left, decimal right)
+       public IActionResult Add(decimal left, decimal right)
        {
-           return $"{left} plus {right} is: {MyMathRoutines.Add(left,right)}";
+           ViewData["Left"] = left;
+           ViewData["Right"] = right;
+           ViewData["AddResult"] = $"{left} plus {right} is: {MyMathRoutines.Add(left,right)}";
+           return View();
        }
-       public string Subtract(decimal left, decimal right)
+       public IActionResult Subtract(decimal left, decimal right)
        {
-           return $"{left} minus {right} is: {MyMathRoutines.Subtract(left,right)}";
+           ViewData["Left"] = left;
+           ViewData["Right"] = right;
+           ViewData["SubtractResult"] = $"{left} minus {right} is: {MyMathRoutines.Subtract(left,right)}";
+           return View();
        }
-       public string Multiply(decimal left, decimal right)
-       {
-           return $"{left} multiplied by {right} is: {MyMathRoutines.Multiply(left, right)}";
+       public IActionResult Multiply(decimal left, decimal right)
+       {   
+           ViewData["Left"] = left;
+           ViewData["Right"] = right;
+           ViewData["MultiplyResult"] =  $"{left} multiplied by {right} is: {MyMathRoutines.Multiply(left, right)}";
+           return View();
        }
-       public string Divide(decimal left, decimal right)
+       public IActionResult Divide(decimal left, decimal right)
        {
-           return $"{left} divided by {right} is: {MyMathRoutines.Divide(left, right)}";
+           ViewData["Left"] = left;
+           ViewData["Right"] = right;
+           ViewData["DivideResult"] =  $"{left} divided by {right} is: {MyMathRoutines.Divide(left, right)}";
+           return View();
        }
-       public string Powers(double left, double right)
+       public IActionResult Powers(double left, double right)
        {
-           return $"{left} to the power of {right} is: {MyMathRoutines.Power(left, right)}";
+           ViewData["Left"] = left;
+           ViewData["Right"] = right;
+           ViewData["PowerResult"] =  $"{left} to the power of {right} is: {MyMathRoutines.Power(left, right)}";
+            return View();
        }
-       public string Ceiling(decimal number)
+       public IActionResult Ceiling(decimal number)
        {
-           return $"The ceiling of {number} is: {MyMathRoutines.Ceiling(number)}";
+           ViewData["CeilingResult"] =  $"The ceiling of {number} is: {MyMathRoutines.Ceiling(number)}";
+            return View();
        }
-       public string Floor(decimal number)
+       public IActionResult Floor(decimal number)
        {
-           return $"The floor of {number} is: {MyMathRoutines.Floor(number)};";
-}
+           ViewData["FloorResult"] =  $"The floor of {number} is: {MyMathRoutines.Floor(number)};";
+            return View();
+       }
       
     }
 }
